@@ -15,13 +15,11 @@ async function generatePassword(plainTextPassword: string): Promise<string> {
     const salt = await bcrypt.genSalt(10);
     const hash = await bcrypt.hash(plainTextPassword, salt);
     return hash;
-    //@TODO Use Bcrypt to Generated Salted Hashed Passwords
 }
 
 async function comparePasswords(plainTextPassword: string, hash: string): Promise<boolean> {
     const result  = await bcrypt.compare(plainTextPassword, hash);
     return result;
-    //@TODO Use Bcrypt to Compare your password to your Salted Hashed Password
 }
 
 function generateJWT(user: User): string {
