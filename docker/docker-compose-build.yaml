@@ -1,0 +1,10 @@
+version: "3"
+services:
+ backend:
+  build:
+    context: ../udagram-backend
+  image: thedevices/udagram-backend
+ frontend:
+  build:
+    context: ../udagram-frontend
+  image: thedevices/udagram-frontend:local
