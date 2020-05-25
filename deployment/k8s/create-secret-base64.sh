@@ -1,2 +1,5 @@
 #!/bin/bash
-echo -n $1 | base64
+read -p "Enter with text: " var
+echo "***********************************"
+echo -n $var | base64
+echo "***********************************"
