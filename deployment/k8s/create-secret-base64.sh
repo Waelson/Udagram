@@ -1,5 +1,5 @@
 #!/bin/bash
-read -p "Enter with text: " var
+read -p "Input a value: " var
 echo "***********************************"
 echo -n $var | base64
 echo "***********************************"
