@@ -1,2 +1,2 @@
 # Udagram
-Project Instagram clone based on Node JS.
+Instagram clone project based on Node JS.
