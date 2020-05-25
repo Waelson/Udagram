@@ -2,6 +2,8 @@ version: "3"
 services:
   backend:
     image: thedevices/udagram-backend
+    ports:
+      - "8080:8080"    
     volumes:
       - $HOME/.aws:/root/.aws
     environment:
@@ -13,7 +15,7 @@ services:
       AWS_PROFILE: $AWS_PROFILE 
       AWS_MEDIA_BUCKET: $AWS_MEDIA_BUCKET
   frontend:
-    image: thedevices/udagram-frontend:local
+    image: thedevices/udagram-frontend
     ports:
       - "8100:80"
     depends_on:
