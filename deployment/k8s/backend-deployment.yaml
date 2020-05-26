@@ -27,6 +27,21 @@ spec:
             memory: "1024Mi"
             cpu: "500m"      
         env:
+        - name: AWS_PROFILE
+          valueFrom:
+            configMapKeyRef:
+              name: env-config
+              key: AWS_PROFILE        
+        - name: AWS_REGION
+          valueFrom:
+            configMapKeyRef:
+              name: env-config
+              key: AWS_REGION    
+        - name: AWS_MEDIA_BUCKET
+          valueFrom:
+            configMapKeyRef:
+              name: env-config
+              key: AWS_MEDIA_BUCKET                     
         - name: POSTGRES_DATABASE
           valueFrom:
             configMapKeyRef:
@@ -47,6 +62,16 @@ spec:
             secretKeyRef:
               name: env-secret
               key: POSTGRES_USER
+        - name: ACCESS_KEY_ID
+          valueFrom:
+            secretKeyRef:
+              name: env-secret
+              key: ACCESS_KEY_ID
+        - name: SECRET_ACCESS_KEY
+          valueFrom:
+            secretKeyRef:
+              name: env-secret
+              key: SECRET_ACCESS_KEY                            
       restartPolicy: Always
 
 
