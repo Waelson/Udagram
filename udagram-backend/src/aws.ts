@@ -4,10 +4,18 @@ import { config } from './config/config';
 const c = config.dev;
 
 //Configure AWS
-if (c.aws_profile != "DEPLOYED"){
+if (c.aws_profile != "DEPLOYED" && c.aws_profile != "K8S"){
   var credentials = new AWS.SharedIniFileCredentials({profile: c.aws_profile});
   AWS.config.credentials = credentials;
+} else if(c.aws_profile == "K8S") {
+  AWS.config.update({
+    region: c.aws_region,
+    accessKeyId: c.aws_access_key_id,
+    secretAccessKey: c.aws_secret_access_key
+  })
 }
+
+
 
 export const s3 = new AWS.S3({
   signatureVersion: 'v4',
