@@ -1,5 +1,12 @@
 version: "3"
 services:
+  reverseproxy:
+    image: thedevices/udagram-reverseproxy
+    ports:
+      - "8080:8080"
+    depends_on:
+      - backend
+      - frontend
   backend:
     image: thedevices/udagram-backend
     ports:
@@ -20,3 +27,4 @@ services:
       - "8100:80"
     depends_on:
       - backend
+

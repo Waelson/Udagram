@@ -8,3 +8,7 @@ services:
   build:
     context: ../../udagram-frontend
   image: thedevices/udagram-frontend
+ reverseproxy:
+  build:
+    context: ../../udagram-reverseproxy
+  image: thedevices/udagram-reverseproxy
